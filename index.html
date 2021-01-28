@@ -273,9 +273,6 @@
 
                     // The line is a question...
                     if (lines[i].trim().endsWith('?') && lines[i].startsWith(g_InterviewerName)) {
-                        // Increment the question counter...
-                        q_Count++;
-
                         // The value of q_Content is the preinterview when isPreinterview = true
                         if (isPreinterview) {
                             preinterviewContent = q_Content;
@@ -285,6 +282,9 @@
                             allQuestions += formatQuestion(q_Count, q_Header, q_Content);
                         }
 
+                        // Increment the question counter...
+                        q_Count++;
+                        
                         // Start a new formatted question...
                         q_Header  = lines[i].replace(`${g_InterviewerName} says: `, ''); // remove the "says: " part from the line
                         q_Content = '';
