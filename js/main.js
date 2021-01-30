@@ -13,7 +13,6 @@
 const TPLTVAR_INTERVIEWEE_NAME        = '$INTERVIEWEE_NAME$';        // The name of the interviewee
 const TPLTVAR_PREINTERVIEW_TEXT       = '$PREINTERVIEW_TEXT$';       // The preinterview text - any dialog/RP before the first question
 const TPLTVAR_QUESTIONS_CONTAINER     = '$QUESTIONS_CONTAINER$';     // Replaced by a string containing all the question templates combined
-const TPLTVAR_QUESTION_NUMBER         = '$QUESTION_NUMBER$';         // The current question number
 const TPLTVAR_QUESTION_TEXT           = '$QUESTION_TEXT$';           // The question itself (should be limited to a single line)
 const TPLTVAR_QUESTION_ANSWER_CONTENT = '$QUESTION_ANSWER_CONTENT$'; // The answer and any dialog/RP related to the question
 
@@ -104,7 +103,6 @@ function parseChatLog(lines) {
     let allQuestions = '';  // A string containing all formatted questions
     let q_Header     = '';  // A string containing the question itself
     let q_Content    = '';  // A string containing all dialog related to a single question, except for the question itself
-    let q_Count      = 0;   // Question counter
 
     let isDescription = false; // Keeps track of whether the current line belongs to the description text of any participant
 
@@ -132,7 +130,7 @@ function parseChatLog(lines) {
                 q_Content += `${lines[i]}\r\n\r\n`;
 
                 // Commit the last question...
-                allQuestions += formatQuestion(q_Count + 1, q_Header, q_Content);
+                allQuestions += formatQuestion(q_Header, q_Content);
     
                 // Stop parsing the chat...
                 break;
@@ -191,11 +189,8 @@ function parseChatLog(lines) {
                 isPreinterview = false;
             } else {
                 // Add the formatted question to the questions container...
-                allQuestions += formatQuestion(q_Count, q_Header, q_Content);
+                allQuestions += formatQuestion(q_Header, q_Content);
             }
-
-            // Increment the question counter...
-            q_Count++;
 
             // Start a new formatted question...
             q_Header  = lines[i].replace(`${g_InterviewerName} says: `, ''); // remove the "says: " part from the line
@@ -215,12 +210,10 @@ function parseChatLog(lines) {
 }
 
 // formatQuestion...
-//      q_count:    current questions count
 //      q_header:   the question itself
 //      q_content:  the answer and all the dialog as a response to the question
-function formatQuestion(q_count, q_header, q_content) {
+function formatQuestion(q_header, q_content) {
     let formattedTemplate = QUESTION_TEMPLATE;
-    formattedTemplate = formattedTemplate.replace(TPLTVAR_QUESTION_NUMBER, q_count);
     formattedTemplate = formattedTemplate.replace(TPLTVAR_QUESTION_TEXT, q_header);
     formattedTemplate = formattedTemplate.replace(TPLTVAR_QUESTION_ANSWER_CONTENT, q_content);
     return formattedTemplate;
