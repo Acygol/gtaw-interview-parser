@@ -20,26 +20,19 @@ const TPLTVAR_QUESTION_ANSWER_CONTENT = '$QUESTION_ANSWER_CONTENT$'; // The answ
 // The main template is the parent template; individual question templates are parsed
 // and then embedded within this template.
 const MAIN_TEMPLATE = `[divbox=white]
-[hr][/hr]
 [center][img]https://www.upload.ee/image/12808254/recruitment.png[/img][/center] 
-[hr][/hr]
 
-[center][size=150][font=AmerType Md BT]INTERVIEW - ${TPLTVAR_INTERVIEWEE_NAME}[/font][/size][/center]
-
-[hr][/hr]
+[divbox=#284066][color=white][center][size=150][font=AmerType Md BT]INTERVIEW - ${TPLTVAR_INTERVIEWEE_NAME}[/font][/size][/center][/color][/divbox]
 
 [justify]
-${TPLTVAR_PREINTERVIEW_TEXT}
+[legend=#284066, Preinterview]${TPLTVAR_PREINTERVIEW_TEXT}[/legend]
 ${TPLTVAR_QUESTIONS_CONTAINER}
 [/justify]
 [/divbox]
 `
 
 // Individual question template
-const QUESTION_TEMPLATE = `[hr][/hr]
-[b]Question #${TPLTVAR_QUESTION_NUMBER}: ${TPLTVAR_QUESTION_TEXT}[/b]
-
-${TPLTVAR_QUESTION_ANSWER_CONTENT}`
+const QUESTION_TEMPLATE = `[legend=#284066, ${TPLTVAR_QUESTION_TEXT}]${TPLTVAR_QUESTION_ANSWER_CONTENT}[/legend]`
 
 // Form data
 let g_InterviewerName = ''; // Interviewer name
