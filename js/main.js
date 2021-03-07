@@ -30,12 +30,14 @@ ${TPLTVAR_QUESTIONS_CONTAINER}
 [/divbox]
 
 Response format:
+[code]
 [legend=#284066, Evaluation]
 [b]Reviewer's name:[/b]
 [b]Reviewer's badge number:[/b]
 [b]Evaluation:[/b]
 [b](([/b] [b]OOC Note:[/b] (optional) [b]))[/b]
 [/legend]
+[/code]
 `
 
 // Individual question template
