@@ -28,6 +28,14 @@ const MAIN_TEMPLATE = `[divbox=white]
 ${TPLTVAR_QUESTIONS_CONTAINER}
 [/justify]
 [/divbox]
+
+Response format:
+[legend=#284066, Evaluation]
+[b]Reviewer's name:[/b]
+[b]Reviewer's badge number:[/b]
+[b]Evaluation:[/b]
+[b](([/b] [b]OOC Note:[/b] (optional) [b]))[/b]
+[/legend]
 `
 
 // Individual question template
