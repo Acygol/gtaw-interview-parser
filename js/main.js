@@ -1,6 +1,6 @@
 /*
 //
-//  Written and developed by Acygol.
+//  Written and developed by Acygol (JeffersonKay).
 //
 //  Initially used for the Training and Recruitment division of the 
 //  GTAW Fire Department, repurposed for the GTAW State Fire Marshals.
