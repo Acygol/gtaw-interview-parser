@@ -75,7 +75,7 @@ let g_HasError = false;
 const g_ErrorDiv = document.getElementById('div-error');
 
 // Default colors
-const g_DefaultDivboxColor  = '#ffffff'; // White
+const g_DefaultDivboxColor  = '#284066'; // Some shade of blue
 const g_DefaultRoleplayColor = '#AD82CE'; // Some shade of purple
 
 // Form data
@@ -281,6 +281,12 @@ function parseChatLog(lines) {
             // Add the line to the current question if it wasn't the question...
             q_Content += `${lines[i]}\r\n\r\n`;
         }
+    }
+
+    // The interview couldn't be parsed.
+    if (!allQuestions) {
+        showError("The parser was unable to locate the start of the interview. Make sure your badge number and the word \"interview\" are in the same sentence.");
+        return;
     }
 
     // Output a formatted topic
