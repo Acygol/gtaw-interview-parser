@@ -377,6 +377,82 @@ function showError(error) {
 
 // Word from God; credits to: https://jcpsimmons.github.io/Godspeak-Generator/
 // I simply reminded God of some words, for He knew all
+const godsVocabularyTurkish = [
+    "abla", "acaba", "acele", "acı", "aç", "açı", "açılmak", "açmak", "ad", "ada", "adam", "âdet", "adres", "affetmek", "afiyet", "ağabey", 
+    "ağaç", "ağır", "ağız", "ağlamak", "ağrımak", "ağustos", "aile", "ait", "ak", "akıl", "akıllı", "akmak", "akşam", "alay", "alçak", 
+    "alın", "alışmak", "alışveriş", "allah", "allahaısmarladık", "almak", "alt", "altı", "altın", "altmış", "ama", "an", "ana", "anahtar", "ancak", 
+    "anlamak", "anlatmak", "anne", "apartman", "araba", "aralık", "aramak", "arka", "arkadaş", "armut", "artık", "arzu", "asansör", "asker", "aşağı", 
+    "at", "ata", "ateş", "atmak", "avukat", "ay", "ayak", "ayakkabı", "aydınlık", "ayna", "aynı", "ayran", "ayrı", "ayrılmak", "az", 
+    "azalmak", "B", "baba", "bacak", "bağ", "bağlı", "bahar", "bahçe", "bakan", "bakkal", "bakmak", "balık", "balkon", "banka", "banyo", 
+    "bardak", "basmak", "baş", "başarmak", "başbakan", "başka", "başlamak", "batı", "batmak", "bavul", "bay", "bayan", "bayılmak", "bayram", "bazan", 
+    "bazı", "bebek", "beğenmek", "bekâr", "beklemek", "belediye", "belge", "belki", "belli", "ben", "benzin", "beraber", "berber", "beri", "beslemek", 
+    "beş", "bey", "beyaz", "beyefendi", "bıçak", "bırakmak", "biber", "bildirmek", "bile", "bilet", "biletçi", "bilgi", "bilmek", "bin", "bina", 
+    "binmek", "bir", "bira", "biraz", "birleşik", "birlik", "bisiklet", "bitirmek", "bitmek", "biz", "bluz", "boğaz", "bol", "borç", "boş", 
+    "boy", "boyun", "bozmak", "bozuk", "bozulmak", "bölge", "bölüm", "börek", "böyle", "bu", "buçuk", "bugün", "bulmak", "buluşmak", "bulut", 
+    "bulvar", "burada", "burun", "buyurmak", "buz", "buzdolabı", "büro", "bütün", "büyük", "C", "cadde", "cami", "can", "canlı", "ceket", 
+    "cennet", "cep", "cevap", "cins", "cuma", "cumartesi", "cumhuriyet", "Ç", "çabuk", "çağırmak", "çalışkan", "çalışma", "çalışmak", "çalmak", "çanta", 
+    "çarpmak", "çarşamba", "çarşı", "çatal", "çay", "çekmek", "çeşit", "çevirmek", "çeyrek", "çıkarmak", "çıkmak", "çiçek", "çiftlik", "çikolata", "çirkin", 
+    "çocuk", "çok", "çorap", "çorba", "çünkü", "D", "da", "dağ", "daha", "daima", "daire", "dakika", "daktilo", "dans", "dar", 
+    "davet", "dede", "defa", "defter", "değer", "değil", "değışik", "değişmek", "delik", "demek", "denemek", "deniz", "derece", "derhal", "derin", 
+    "ders", "dert", "deva", "devir", "devlet", "deyim", "dış", "dışarı", "diğer", "dikkat", "dikmek", "dil", "dilemek", "dinlemek", "diş", 
+    "doğmak", "doğru", "doğu", "doğum", "doksan", "doktor", "dokuz", "dolap", "dolaşmak", "dolmak", "dolmuş", "dolu", "domates", "dondurma", "dost", 
+    "doymak", "dönmek", "dönüş", "dört", "dövmek", "dudak", "durak", "durmak", "durum", "duş", "duvar", "duygu", "duymak", "düğün", "dükkân", 
+    "dün", "dünya", "düşmek", "düşünmek", "düz", "E", "eczane", "efendi", "eğer", "eğlence", "eğlenmek", "ek", "ekim", "ekmek", "eksik", 
+    "ekşi", "el", "elbette", "elbise", "elektrik", "elli", "elma", "emekli", "emin", "emir", "en", "enerji", "erkek", "erken", "ertesi", 
+    "eser", "eski", "eş", "eşya", "et", "etek", "etmek", "etraf", "ev", "evet", "evlenmek", "evli", "evvel", "evvel", "eylem", 
+    "eylül", "F", "fabrika", "faiz", "fakat", "fakir", "fakülte", "fark", "fayda", "fazla", "felâket", "fena", "fırçalamak", "fırın", "fiil", 
+    "fikir", "film", "fincan", "fiyat", "fotoğraf", "G", "galiba", "garson", "gazete", "gazeteci", "gazino", "gece", "geç", "geçen", "geçirmek", 
+    "geçit", "geçmek", "gelecek", "gelin", "gelişmek", "gelmek", "gemi", "genç", "gene", "genellikle", "geniş", "gerçek", "gerek", "gerekmek", "geri", 
+    "getirmek", "gezmek", "gibi", "gidiş", "giriş", "girmek", "gişe", "gitmek", "giyinmek", "giymek", "göğüs", "gök", "göl", "gömlek", "göndermek", 
+    "göre", "görev", "görmek", "görüşmek", "göstermek", "götürmek", "göz", "gözlük", "gram", "güç", "gül", "gülmek", "gün", "günaydın", "güneş", 
+    "güney", "günlük", "üç", "gürültü", "güzel", "H", "haber", "hafta", "hak", "hakikaten", "haklı", "hal", "halbuki", "halı", "halk", 
+    "hangi", "hanım", "hanımefendi", "hani", "hareket", "harita", "harp", "hasta", "hastabakıcı", "hastane", "hat", "hatırlamak", "hava", "hayat", "haydi", 
+    "hayır", "hayvan", "hazır", "hazırlamak", "haziran", "hâlâ", "hediye", "hele", "hem", "hemen", "henüz", "Mehmet", "hep", "her", "herhalde", 
+    "herkes", "hesap", "heyecan", "hırsız", "hız", "hiç", "hissetmek", "hoca", "hoş", "hükümet", "I", "ısırmak", "ısmarlamak", "ışık", "iç", 
+    "içeri", "için", "içki", "içmek", "idare", "ihtiyaç", "ihtiyar", "iki", "iktisadi", "ilaç", "ilân", "ile", "ileri", "ilginç", "ilk", 
+    "ilkbahar", "imza", "imzalamak", "inanmak", "inmek", "insan", "inşallah", "ise", "isim", "iskemle", "istasyon", "istek", "istemek", "iş", "işçi", 
+    "işitmek", "işte", "itmek", "iyi", "iyilik", "izin", "izlemek", "J", "jeton", "K", "kabul", "kaç", "kaçmak", "kadar", "kadın", 
+    "kahvaltı", "kahve", "kahverengi", "kalabalık", "kaldırmak", "kale", "kalem", "kalın", "kalkmak", "kalmak", "kalorifer", "kan", "kanun", "kapalı", "kapamak", 
+    "kapı", "kapıcı", "kar", "kara", "karakol", "karanlık", "karar", "kardeş", "karı", "karın", "karışık", "karışmak", "karşı", "karşılamak", "kasaba", 
+    "kasap", "kasım", "kaş", "kaşık", "kat", "katı", "kavga", "kavun", "kaybetmek", "kaynak", "kazan", "kazanç", "kazanmak", "kâğıt", "kâr", 
+    "kâtip", "kebap", "kedi", "kendi", "kent", "kere", "kesmek", "keyif", "kırk", "kırmak", "kırmızı", "kısa", "kısım", "kış", "kıyı", 
+    "kıyma", "kız", "kızıl", "kızmak", "kibrit", "kilim", "kilo", "kilometre", "kim", "kimse", "kira", "kirli", "kişi", "kitap", "koca", 
+    "kol", "kolay", "koltuk", "komşu", "konferans", "konser", "konsolos", "konuşmak", "korkmak", "koşmak", "koymak", "koyu", "koyun", "köfte", "kömür", 
+    "köpek", "köprü", "kör", "köşe", "kötü", "köy", "köylü", "kulak", "kullanmak", "kum", "kumaş", "kurmak", "kurtarmak", "kuruş", "kuş", 
+    "kutlamak", "kutu", "kuvvet", "kuzey", "küçük", "kütüphane", "L", "lamba", "lâzım", "limon", "lira", "lise", "lokanta", "lütfen", "lüzum", 
+    "M", "maalesef", "madem", "maden", "mahalle", "makina", "mal", "manav", "manzara", "mart", "masa", "maşallah", "mavi", "mayıs", "mâna", 
+    "meclis", "mektep", "mektup", "memleket", "memnun", "memur", "mendil", "merak", "merdiven", "merhaba", "merkez", "mersi", "mesele", "meslek", "meşgul", 
+    "meşhur", "metre", "mevsim", "mevzu", "meydan", "meyve", "millet", "millı", "milyar", "milyon", "mimar", "minare", "misafir", "mor", "musluk", 
+    "mutfak", "mutlaka", "mutlu", "müddet", "müdür", "mühendis", "mühim", "mümkün", "müracaat", "müsaade", "müze", "müzik", "N", "nasıl", "ne", 
+    "neden", "nerede", "nereli", "nereye", "niçin", "nihayet", "nisan", "niye", "niyet", "niyet", "normal", "not", "numara", "numara", "nutuk", 
+    "nutuk", "O", "ocak", "oda", "odacı", "odun", "ofis", "oğlan", "oğul", "okul", "okumak", "olmak", "omuz", "on", "opera", 
+    "ordu", "orman", "orta", "otel", "otobüs", "otomobil", "oturmak", "otuz", "oynamak", "oyun", "Ö", "öbür", "ödemek", "ödev", "öğle", 
+    "öğrenci", "öğrenmek", "öğretim", "öğretmek", "öğretmen", "ölçmek", "ölçü", "ölmek", "ölüm", "ömür", "ön", "önce", "önem", "önemli", "öpmek", 
+    "öyle", "özel", "özür", "P", "pahalı", "paket", "palto", "pansiyon", "pantalon", "para", "parça", "park", "parlak", "parmak", "pasaport", 
+    "pasta", "pastane", "patates", "patron", "pazar", "pazartesi", "pek", "peki", "pembe", "pencere", "perde", "perşembe", "peynir", "piknik", "pilav", 
+    "pis", "pişirmek", "pişmek", "plaj", "polis", "politika", "portakal", "posta", "postane", "profesör", "program", "pul", "R", "radyo", "raf", 
+    "rağmen", "rahat", "rakı", "randevu", "reçel", "renk", "renkli", "resim", "resmı", "ressam", "rica", "rüzgâr", "S", "saat", "sabah", 
+    "saç", "sade", "sağ", "sağlık", "saha", "sahi", "sahip", "sakın", "salata", "salı", "salon", "sanayi", "sandalye", "saniye", "sanki", 
+    "sanmak", "sarı", "satıcı", "satın", "satmak", "savaş", "sayfa", "saymak", "sebep", "sebze", "seçmek", "sefer", "sekiz", "sekreter", "seksen", 
+    "selâm", "sen", "sene", "serbest", "sergi", "serin", "sert", "ses", "sevgili", "sevinç", "sevinmek", "sevmek", "seyahat", "seyretmek", "sıcak", 
+    "sıfır", "sık", "sıkmak", "sınıf", "sır", "sıra", "sigara", "sinema", "siyah", "siz", "soğan", "soğuk", "sohbet", "sokak", "sol", 
+    "son", "sonbahar", "sonra", "sormak", "soru", "sorun", "soyadı", "söylemek", "söz", "sözlük", "spor", "su", "subay", "sultan", "susmak", 
+    "sürmek", "süt", "Ş", "şair", "şapka", "şarap", "şark", "şart", "şaşırmak", "şaşmak", "şehir", "şeker", "şekerli", "şemsiye", "şey", 
+    "şikâyet", "şimdi", "şirket", "şiş", "şişe", "şişman", "şoför", "şöyle", "şu", "şubat", "şüphe", "T", "tabak", "tabii", "tahsil", 
+    "tahta", "takım", "taksi", "tam", "tamam", "tane", "tanımak", "tanışmak", "tanrı", "taraf", "tarif", "tarih", "tarla", "taş", "taşımak", 
+    "taşınmak", "tatil", "tatlı", "tavuk", "taze", "tebrik", "tehlike", "tek", "teklif", "tekrar", "tekrarlamak", "telefon", "televizyon", "telgraf", "tembel", 
+    "temiz", "temizlemek", "temmuz", "temsil", "tepe", "tercih", "terzi", "teşekkür", "tırnak", "ticaret", "tiyatro", "top", "toplamak", "toplantı", "toprak", 
+    "tramway", "traş", "tren", "tuhaf", "turist", "turistik", "turuncu", "tutmak", "tuvalet", "tuz", "tuzlu", "türlü", "tütün", "U", "ucuz", 
+    "uçak", "uçmak", "ufak", "uğramak", "ulus", "ummak", "umumiyetle", "unutmak", "uyanmak", "uygun", "uyku", "uyumak", "uzak", "uzatmak", "uzun", 
+    "Ü", "üç", "ülke", "ümit", "üniversite", "ünlü", "üst", "ütü", "üye", "üzere", "üzmek", "üzülmek", "üzüm", "V", "vakit", 
+    "vali", "valiz", "vapur", "var", "varmak", "vatan", "vatandaş", "vazgeçmek", "vazife", "vaziyet", "ve", "vermek", "veya", "vurmak", "Y", 
+    "ya", "yabancı", "yağ", "yağmak", "yağmur", "yahut", "yakın", "yakıt", "yakmak", "yalan", "yalnız", "yan", "yanak", "yani", "yanlış", 
+    "yanmak", "yapmak", "yaprak", "yardım", "yarı", "yarım", "yarın", "yasak", "yaş", "yaşamak", "yaşlı", "yatak", "yatmak", "yavaş", "yavru", 
+    "yaz", "yazı", "yazık", "yazmak", "yedi", "yemek", "yeni", "yer", "yeşil", "yetişmek", "yetmek", "yetmiş", "yıkamak", "yıkanmak", "yıl", 
+    "yine", "yirmi", "yiyecek", "yoğurt", "yok", "yoksa", "yol", "yolcu", "yolculuk", "yollamak", "yorgun", "yorulmak", "yön", "yönetici", "yukarı", 
+    "yumurta", "yumuş", "yurt", "yüksek", "yükselmek", "yürümek", "yüz", "yüzmek", "Z", "zahmet", "zaman", "zamir", "zarf", "zaten", "zengin"    
+]
+
 const godsVocabularyLithuanian = [
     "kaip", "Aš", "jo", "kad", "jis", "buvo", "už", "nuo", "yra", "su", "jie", "būti", "pradėjo", "vienas", "turėti", "tai", 
     "nuo", "pagal", "karštas", "žodis", "tačiau", "ką", "kai", "yra", "ji", "jūs", "arba", "buvo", "pamatyti", "iš", "į", 
@@ -555,6 +631,9 @@ function generateWordGod(language = 0) {
         case 1:
             length_of_vocab = godsVocabularyLithuanian.length;
             break;
+        case 2:
+            length_of_vocab = godsVocabularyTurkish.length;
+            break;
     }
 
     // God decides to punctuate, or not at all. Only He governs over that
@@ -582,6 +661,9 @@ function generateWordGod(language = 0) {
                 break;
             case 1:
                 newWord = godsVocabularyLithuanian[wordIdx];
+                break;
+            case 2:
+                newWord = godsVocabularyTurkish[wordIdx];
                 break;
         }
         passage += ` ${newWord}`;
