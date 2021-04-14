@@ -377,7 +377,7 @@ function showError(error) {
 
 // Word from God
 const godsVocabulary = [
-    "'kay", "African", "Angel", "BBC", "BRB", "Bam", "Boo", "Burp", "CIA", "California", "Catastrophic Success", "China", "Church", 
+    "African", "Angel", "BBC", "BRB", "Bam", "Boo", "Burp", "CIA", "California", "Catastrophic Success", "China", "Church", 
     "Cosmos", "Dad", "Dudly Doright", "FBI", "GarryKasparov", "Ghost", "Give me praise", "God", "God is not mocked", "God smack", 
     "Greece", "Greek to me", "Han shot first", "Hasta", "Heaven", "Hicc up", "HolySpirit", "I'll ask nicely", "I'll be back", 
     "I'll get right on it", "I'll let you know", "I'll think about it", "I'm God and you're not", "I'm God who the hell are you", 
@@ -413,9 +413,9 @@ const godsVocabulary = [
     "everything's a okay", "evolution", "exorbitant", "experts", "exports", "fabulous", "face palm", "failure is not an option", 
     "failure to communicate", "fake", "fancy", "far out man", "fer sure", "fight", "figuratively", "food", "fool", "fortitude", 
     "foul", "freak", "frown", "fun", "funny", "furious", "gambling", "game changer", "game over", "geek", "genius", "ghastly", "ghetto", 
-    "glam", "glorious", "gluttony", "go ahead make my day", "good", "gosh", "gross", "grumble", "guilty", "guppy", "ha", "handyman", 
-    "hang in there", "happy", "happy happy joy joy", "hard working", "harder than it looks", "hate", "have fun", "he be like", 
-    "heads I win tails you lose", "heathen", "hello", "here now", "hey Mikey he likes it", "hey thats right", "hi", "high five", 
+    "glam", "glorious", "gluttony", "go ahead make my day", "good", "Good... Go-ood... dog...", "gosh", "gross", "grumble", "guilty", 
+    "guppy", "ha", "handyman", "hang in there", "happy", "happy happy joy joy", "hard working", "harder than it looks", "hate", "have fun", 
+    "he be like", "heads I win tails you lose", "heathen", "hello", "here now", "hey Mikey he likes it", "hey thats right", "hi", "high five", 
     "high mucky muck", "hilarious", "hippy", "hit", "ho ho ho", "hobnob", "hold on a minute", "holier than thou", "holy grail", "home", 
     "homo", "honestly", "honesty", "hooah", "hope", "hopefully", "horrendous", "hot air", "hotel", "how's the weather", "how about", 
     "how about that", "how about those yankees", "how bout it", "how come", "how could you", "how do I put this", "how goes it", 
@@ -458,22 +458,43 @@ const godsVocabulary = [
     "rum bitty di", "I m prettier than this man", "This cant be william wallace", "got the life", "king nun", "king of mars", 
     "an Irishman is forced to talk to God", "you couldnt navigate yer way circleK", "its trivial obviously", "rufus!"
 ];
+const godsPunctuation = ['?', '.', '!', ',', ';', '—'];
 
 function getRandomInterval(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-function getRandomMax(max) {
-    return Math.floor(Math.random() * max);
+function getRandomIndex(max) {
+    return getRandomInterval(0, max);
 }
 
 function generateWordGod() {
     let passage = '';
+
+    // God only wishes to speak between 24 and 48 words at a time
     let maxWords = getRandomInterval(24, 48);
 
+    const minWordsForPunct = 3;
+
+    // God decides to punctuate, or not at all. Only He governs over that
+    // decision
+    let godPunctuateAt = getRandomInterval(minWordsForPunct, 48);
+
     for (let i = 0; i < maxWords; i++) {
-        let wordIdx = getRandomMax(godsVocabulary.length);
-        passage += `${godsVocabulary[wordIdx]} `;
+        if (i % godPunctuateAt == 0 && i > 0) {
+            // Yes, my lord. Thine punctuation is being added
+            let punctuationIdx = getRandomIndex(godsPunctuation.length);
+            passage += `${godsPunctuation[punctuationIdx]}`;
+
+            // God may decide when to punctuate again. That's not up 
+            // to us mere mortals
+            if ((maxWords - i) > minWordsForPunct) {
+                godPunctuateAt = getRandomInterval(minWordsForPunct, (48 - i));
+            }
+        }
+
+        let wordIdx = getRandomIndex(godsVocabulary.length);
+        passage += ` ${godsVocabulary[wordIdx]}`;
     }
 
     let godsWord = document.getElementById('div-gods-word');
