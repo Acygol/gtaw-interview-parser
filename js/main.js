@@ -375,7 +375,8 @@ function showError(error) {
     g_ErrorDiv.scrollIntoView();
 }
 
-// Word from God
+// Word from God; credits to: https://jcpsimmons.github.io/Godspeak-Generator/
+// I simply reminded God of some words, for He knew all
 const godsVocabulary = [
     "African", "Angel", "BBC", "BRB", "Bam", "Boo", "Burp", "CIA", "California", "Catastrophic Success", "China", "Church", 
     "Cosmos", "Dad", "Dudly Doright", "FBI", "GarryKasparov", "Ghost", "Give me praise", "God", "God is not mocked", "God smack", 
