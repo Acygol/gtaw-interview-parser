@@ -512,20 +512,20 @@ const godsVocabulary = [
     "sports", "spunky", "stoked", "straighten up", "strip", "study", "stuff", "stunning", "super computer", "surprise surprise", "take the day off", 
     "take your pick", "talk to my lawyer", "tattle tale", "taxes", "test pilot", "thank you very much", "that's all folks", "that's for me to know", 
     "that's much better", "that's no fun", "that's your opinion", "thats just wrong", "thats laughable", "thats right", "the", "the enquirer", 
-    "theft", "theres no place like home", "these cans are defective", "think you could do better", "this might end badly", "threads", "tiffanies", 
-    "to infinity and beyond", "tomorrow", "tree hugger", "try again", "uh huh", "umm", "umm the other answer", "umm what now", "unemployment", 
-    "unsung hero", "vengeance", "vengeful", "vermin", "vice", "virtue", "voodoo", "vote", "walking", "wanna bet", "wastoid", "watch it buddy", 
-    "wazz up with that", "we ve already got one", "well I never", "well golly", "well obviously", "whale", "what's it to you", "what's the plan", 
-    "what's up", "what a mess", "what a nightmare", "what do you expect", "what do you want", "what have you done for me lately", "what luck", 
-    "what part of God do you not understand", "what planet are you from", "what the heck", "what was I thinking", "what would Jesus do", 
-    "whatcha talkin' 'bout", "whazza matter for you", "when hell freezes over", "where's the love", "whiner", "white trash", "who's to say", 
-    "who are you to judge", "whoop there it is", "why didn' you tell me", "why do I put up with this", "why is it", "wishful thinking", 
-    "won't you be my neighbor", "wonderbread", "wonderful", "woot", "wot", "wrath", "yada yada yada", "yeah", "yep", "yikes", "you'll see", 
-    "you're fired", "you're in big trouble", "you're lucky", "you're no fun", "you're not all there are you", "you're nuts", "you're out of your mind", 
-    "you're so screwed", "you're welcome", "you're wonderful", "you are my sunshine", "you better not", "you do it", "you don't like it", 
-    "you don't say", "you hoser", "you know a better God", "you never know", "you owe me", "you see the light", "you should be so lucky", 
-    "you shouldn't have", "you talkin' to me", "you think I'm joking", "you think you could do better", "yuck", "zoot", "red fang", 
-    "rum bitty di", "I m prettier than this man", "This cant be william wallace", "got the life", "king nun", "king of mars", 
+    "the Serbians are an abomination", "theft", "theres no place like home", "these cans are defective", "think you could do better", 
+    "this might end badly", "threads", "tiffanies",  "to infinity and beyond", "tomorrow", "tree hugger", "try again", "uh huh", "umm", 
+    "umm the other answer", "umm what now", "unemployment", "unsung hero", "vengeance", "vengeful", "vermin", "vice", "virtue", "voodoo", "vote", 
+    "walking", "wanna bet", "wastoid", "watch it buddy", "wazz up with that", "we ve already got one", "well I never", "well golly", "well obviously", 
+    "whale", "what's it to you", "what's the plan", "what's up", "what a mess", "what a nightmare", "what do you expect", "what do you want", 
+    "what have you done for me lately", "what luck", "what part of God do you not understand", "what planet are you from", "what the heck", 
+    "what was I thinking", "what would Jesus do", "whatcha talkin' 'bout", "whazza matter for you", "when hell freezes over", "where's the love", 
+    "whiner", "white trash", "who's to say", "who are you to judge", "whoop there it is", "why didn' you tell me", "why do I put up with this", 
+    "why is it", "wishful thinking", "won't you be my neighbor", "wonderbread", "wonderful", "woot", "wot", "wrath", "yada yada yada", "yeah", 
+    "yep", "yikes", "you'll see", "you're fired", "you're in big trouble", "you're lucky", "you're no fun", "you're not all there are you", 
+    "you're nuts", "you're out of your mind", "you're so screwed", "you're welcome", "you're wonderful", "you are my sunshine", "you better not", 
+    "you do it", "you don't like it", "you don't say", "you hoser", "you know a better God", "you never know", "you owe me", "you see the light", 
+    "you should be so lucky", "you shouldn't have", "you talkin' to me", "you think I'm joking", "you think you could do better", "yuck", "zoot", 
+    "red fang", "rum bitty di", "I m prettier than this man", "This cant be william wallace", "got the life", "king nun", "king of mars", 
     "an Irishman is forced to talk to God", "you couldnt navigate yer way circleK", "its trivial obviously", "rufus!"
 ];
 const godsPunctuation = ['?', '.', '!', ',', ';', '—'];
@@ -546,7 +546,7 @@ function generateWordGod(language = 0) {
     let maxWords = getRandomInterval(24, 48);
     const minWordsForPunct = 3;
 
-    // God must pick between English, Lithuanian, or Serbian
+    // God must pick between English, Lithuanian
     let length_of_vocab = 0;
     switch (language) {
         case 0:
