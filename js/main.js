@@ -478,6 +478,4 @@ function generateWordGod() {
 
     let godsWord = document.getElementById('div-gods-word');
     godsWord.innerText = passage;
-
-    console.log(`${passage}`);
 }
