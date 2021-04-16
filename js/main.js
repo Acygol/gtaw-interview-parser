@@ -377,6 +377,75 @@ function showError(error) {
 
 // Word from God; credits to: https://jcpsimmons.github.io/Godspeak-Generator/
 // I simply reminded God of some words, for He knew all
+const godsVocabularyHawaiian = [
+    "ka mea", "kona", "ia", "I", "ia", "no ka mea", "maluna o", "ua", "me", "lakou", "e", "ma", "ʻekahi", "loaa", "keia", "mai", 
+    "ma", "anal", "olelo", "aka", "ka mea", "kekahi", "e like me", "ka mea", "ia", "oe", "ai ole ia", "i", "ka", "a", "i", 
+    "a", "he", "iloko o", "makou", "hiki", "aku", "kekahi", "he", "ka mea", "hana", "ko lakou", "manawa", "ina", "makemake", "pehea", 
+    "mai la", "kekahi", "kela a me keia", "hai aku", "hana", "i", "ʻekolu", "makemake", "ea", "pono", "no hoi", "paani", "uuku", "hopena", "kau", 
+    "ka hale", "heluhelu mai o", "lima", "ke awa", "nui", "wale", "hui", "a hiki", "aina", "maanei", "pono", "nui", "kiʻekiʻe", "ia", "hahai", 
+    "hana", "no ke aha mai", "noi", "kanaka", "loli", "hele", "malamalama", "keia ano", "aku", "pono", "ka hale", "kiʻi", "hoao", "makou", "hou", 
+    "holoholona", "wahi", "makuahine", "ao", "kokoke", "hana", "iho", "honua", "makuakāne", "kekahi", "hou", "hana", "hapa", "lawe", "loaa", 
+    "wahi", "hana", "ola", "kahi", "mahope iho o", "i hope", "iki", "wale no", "a", "kanaka", "makahiki", "hele mai", "hoike", "o kela", "maikaʻi loa", 
+    "mai iaʻu", "haawi", "makou", "malalo o", "inoa", "loa", "ma", "pono", "ano", "olelo", "nui", "manao", "aku nei au", "kokua", "haahaa", 
+    "laina", "oko", "huli", "kumu", "nui", "ke ano o", "imua o", "hu", "akau", "keiki", "ka wa kahiko", "oi aku", "ia", "ia", "a pau", 
+    "laila", "i ka wa", "ae la", "hoʻohana", "oukou", "ala", "e pili ana i", "he nui", "alaila", "ia lakou", "kakau", "makemake", "like me", "pela", "mau", 
+    "ia", "loihi", "hana", "mea", "ike", "ia", "ʻelua", "i", "nana", "hou", "lā", "hiki", "hele", "hele mai", "hana", 
+    "helu", "hookani", "ʻaʻole", "loa", "kanaka", "i koʻu", "maluna o", "ike", "ka wai", "mamua o", "kahea", "ka mua", "ka mea", "Mei", "iho", 
+    "aoao", "i", "Ano", "loaa", "poo", "ku", "iho", "palapala", "e", "aina", "loaa", "pane", "kula", "ulu", "like", 
+    "malie", "e ao", "kanu", "aloha", "ai", "lā", "ʻehā", "waena o", "moku’āina", "malama", "maka", "loa", "hope", "e", "manaʻo", 
+    "kulanakauhale", "laau", "kela aoao", "mahiʻai", "paakiki", "hoʻomaka", "ikaika", "moʻolelo", "i ike ai", "loa", "kai", "huki", "hema", "hopena o", "hoʻoholo", 
+    "hana, aole", "oiai", "kaomi", "kokoke", "pō", "maoli", "ola", "kakaikahi", "ke akau", "buke", "lawe", "lawe", "nauka", "ai", "lumi", 
+    "hoaaloha", "hoomaka ae", "manaʻo", "iʻa", "mauna", "hooki", "pākahi", "kumu", "lohe", "ka lio", "e oki ai", "paa", "kiai", "kala like ‘ole", "maka", 
+    "laau", "ka papa kuhikuhiE", "hamama", "he", "pu", "aʻe", "keʻokeʻo", "keiki", "hoomaka", "loaʻa", "hele", "Eia", "hoopau i", "pepa", "hui", 
+    "mau", "aloha", "mau", "elua", "mark", "pinepine", "palapala", "a hiki i", "ka mile", "muliwai", "kaʻa", "wawae", "mālama", "ka lua", "lawa", 
+    "maopopo", "kaikamahine", "mau", "opiopio", "makaukau", "luna", "loa", "ʻulaʻula", "papa", "nae", "haha aku", "o anakuhi", "manu", "koke", "kino", 
+    "‘īlio", "ohana", "kauoha", "oweliweli", "waiho", "mele", "ana", "puka", "huahana", "ʻeleʻele", "pōkole", "numeral", "papa", "makani", "ninau", 
+    "hiki mai ana", "loa", "moku", "wahi", "hapalua", "pohaku", "aoao", "ke ahi", "ka hema", "pilikia", "kauwahi", "haʻi", "ike", "kekahi", "mai", 
+    "luna", "a pau", "ke alii", "alanui", "‘īniha", "hoonui", "aole", "ana", "noho", "huila", "piha", "ikaika", "polū", "mea", "hooholo", 
+    "ili", "hohonu", "luna", "mokupuni", "wawae", "nenoaiu", "‘ō i", "hōʻike", "mooolelo", "moku", "like", "gula", "hiki", "pelane", "wahi", 
+    "maloo", "hoohuoi", "akaaka", "tausani", "aku nei", "holo", "huli", "hihiu", "helehelena", "equate", "anal", "Miss", "lawe mai", "wela", "hau", 
+    "kaea", "lawe mai", "ʻae", "ke kaawale ana", "hoopiha", "ka hikina", "pena", "‘ōlelo", "mawaena o", "pa alima", "mana", "kulanakauhale", "uku", "kekahi", "lele", 
+    "haule", "alakai", "kahea ana", "pouli", "Maker", "palapala aie", "kali", "kuka", "huahelu", "hoku", "pahu", "noun", "mahinaʻai", "maha", "pololei", 
+    "hiki", "paona", "hana", "nani", "a holo", "ku", "no", "alo", "ao", "pule", "hope loa", "haawi", "ʻōmaʻomaʻo", "oh la", "poe ola", 
+    "hoʻomōhala", "moana", "pumehana", "like me", "minuke", "ikaika", "kūikawā", "manao", "mahope", "maopopo", "huelo", "paka", "mea", "makahiki", "lohe", 
+    "pono", "hola", "maikai", "oiaio", "iloko o", "haneri", "ʻelima", "no", "‘anuʻu", "koke", "paa", "komohana", "honua", "panee", "hiki", 
+    "hookeai", "verb", "mele", "hoolohe", "ʻeono", "papaʻaina", "hele", "emi", "kakahiaka", "ʻumi", "mea", "mau", "vowel", "ma", "kaua", 
+    "waiho", "ku", "kumu", "kali", "kikowaena", "aloha", "kanaka", "kala", "malama", "hele mai", "alanui", "palapala ‘āina", "ka ua", "rula", "hoomalu", 
+    "huki", "anu", "Hoike", "leo", "ikehu", "i hoʻohālua", "paha", "moe", "kaikuaʻana, kaikaina", "hua", "No Lilo", "aeea", "manaoio", "paha", "e koho i", 
+    "ulia", "helu", "pāhoʻonui", "kumu", "loa", "ho i", "oe", "kumuhana", "māhele", "ka nui", "lauwili", "hoonoho au", "olelo", "kaumaha", "nui", 
+    "hau", "mea", "kaiapili", "mau", "nā", "māhele", "syllable", "manaʻo", "Luna nui", "poepoe", "aka", "hawewe", "papa", "Puʻuwai", "no", 
+    "keia", "kaumaha", "hula", "engine", "wahi", "lima", "ka laula", "holo", "mea", "mahele", "nahele", "noho", "lāhui", "puka makani", "hale kūʻai", 
+    "ke kau", "nalowale", "hiamoe", "hoao", "Lone", "wawae", "me ka", "pa", "hoopahele ae la i", "mauna", "makemake", "lani", "papa", "olioli", "hooilo", 
+    "Pōʻaono", "kakauia", "hihiu", "hana", "malama", "aniani", "ka mauu", "bipi", "oihana", "lihi", "hoailona", "makaikai", "i hala iho nei", "pahee", "leʻaleʻa", 
+    "ao alohilohi i", "kinoea", "map", "mahina", "miliona", "lawe", "hoʻopau", "hauʻoli", "manaolana", "pua", "hoaahu", "malihini", "Hana Party", "kuai", "e hoʻonui i", 
+    "huakai", "oihana", "loaa", "lalani", "waha", "mau", "hōʻailona", "make", "ka liʻiliʻi loa", "pilikia", "hooho", "koe nae", "kakau iho la", "hua", "leo", 
+    "hui", "paipai", "maemae", "ʻoluʻolu o", "wahine", "iwilei", "ala", "ino", "puupuu", "aila", "ke koko", "hoopa aku", "ulu", "keneta", "hui", 
+    "hui", "uea", "kāki", "nalowale", "palaunu", "komo", "kīhāpai", "like", "hoouna", "koho", "haule iho la", "pono", "kahe ana", "maikai", "pali", 
+    "ohi", "hoola", "hooponopono", "kekimala", "pepeiao", "e ae", "loa", "uhai", "hihia", "waena", "pepehi", "keikikāne", "Lake", "manawa", "pālākiō", 
+    "loa", "waipuna", "malama", "keiki", "pololei", "leokanipū", "lahuikanaka", "puke wehewehe’ōlelo", "waiu", "ka mämä holo", "hana", "hui", "uku", "makahiki", "pauku", 
+    "male", "ao", "haohao", "mālie", "pohaku", "wahi", "pii ana", "anu", "manao", "ilihune", "puu", "hoʻokolohua", "lalo", "kī", "hao", 
+    "hookahi", "koʻokoʻo", "i lalo", "ʻiwakālua", "ili", "minoʻaka", "crease", "puka", "lele", "pēpē", "ʻewalu", "kauhale", "ku i", "aa", "kuai", 
+    "hoala mai", "ke hoʻoponopono", "metala", "paha", "pale wale", "ʻehiku", "paukū", "ke kolu", "e", "paa ana", "lauoho", "kakau", "Kapena Kuke", "papahele", "kekahi", 
+    "result", "puhi", "puu", "maluhia", "popoki", "kenekulia", "noonoo", "ʻAno", "kanawai", "iki", "mokuna", "kope", "hopuna’ōlelo", "hāmau", "kiʻekiʻe", 
+    "one", "aina", "‘ōwili", "wela", "manamana lima", "hana", "waiwai", "kaua", "moe", "pepehi", "ka naita", "maoli", "Hawaii", "hoohalike", "poʻo", 
+    "e ole", "noho", "weliweli", "hua", "waiwai", "manoanoa", "koa", "kaʻina", "hana", "hana", "ana", "paʻakikī", "kauka", "e ʻoluʻolu", "hoomalu", 
+    "awakea", "iʻohiʻia", "kēia", "‘āweʻaweʻa", "ku", "haumana", "ke kihi", "‘aoʻao", "lako hou", "kona", "huli ana", "ke komo lima", "ano", "insect", "loaa", 
+    "manawa", "hoike", "Radio", "olelo", "‘Ātoma", "kanaka", "mōʻaukala", "kanawai", "pila nui", "makemake", "iwi", "hoino aku", "manao wale", "e hoomakaukau i", "ae", 
+    "pela", "akahai", "wahine", "luna", "koho", "pono", "oi", "‘ēheu", "hana", "hoalauna", "holoi ai", "‘ōpeʻapeʻa", "e aho", "lehulehu", "palaoa", 
+    "hoohalike", "poem", "kaula", "bele", "hilinai", "ai", "hamo i", "Tube", "kaulana", "dala", "kahawai o", "makau", "maka", "lahilahi", "triangle", 
+    "Honua", "wikiwiki", "kahuna", "panalaau ia", "uaki", "i koʻu", "Ka Hawai i", "komo", "nui", "hawaiian", "huli", "hoouna aku", "melemele", "ka pū", "ae aku", 
+    "paʻi", "make", "wahi", "waonahele", "hoopii", "papa", "ke eaʻe", "ala", "hiki", "haku", "Track", "makua", "mauka", "mahele", "pepa", 
+    "waiwai", "i ka lokomaikaiia", "hoʻohui", "lāʻau kū", "ke lilo aku", "chord", "kona kaikea a", "olioli", "kiʻi", "puu", "wahi", "makuakāne", "ka berena", "kauoha", "pono", 
+    "hookolokolo", "kaumaha", "Hoʻohana", "kauwa", "Duck", "koi aku la lakou", "makeke", "degere", "hoolahaia’ku [na kanaka", "chick", "aloha", "ʻenemi", "pane", "inu", "ana", 
+    "kākoʻo", "olelo", "maoli", "huahelu", "mahu", "ka noi", "ala", "wai", "mōʻaukala", "ia mea", "puu", "niho", "iwi", "‘ā’ī", "ka oxygen", 
+    "kōpaʻa", "make", "nani", "akamai", "na wahine", "manawa", "pāʻoihana", "Mākēneki", "kala", "aloha", "lala", "ń", "kau hope", "ka oi aku", "laau", 
+    "makau", "nui", "kaikuaʻana, kaikaina", "kila", "kūkākūkā", "mua", "ano like", "alakai", "ka hoao ana", "manual", "kii onohi", "kuai", "alakai", "kukulu iho", "kapa", 
+    "nuipa", "kāleka", "hui", "kaula", "oihana", "lanakila ‘", "moe", "ahiahi", "ano", "ʻai", "hoʻopololei", "huina", "kumu o", "honi", "awāwa", 
+    "aole", "palua", "noho", "hoʻomau", "aeie", "pakuhi", "ua inaina i ka", "kuai", "holomua", "poe", "unuhi", "hanana", "mau", "hana", "‘auʻau", 
+    "manawa", "ku pono ana", "wahine", "kāmaʻa", "poʻohiwi", "hoolaha aku", "hooponopono", "hoomoana", "invent", "pulupulu", "Born", "hooholo", "quart", "ʻeiwa", "kona kalaka", 
+    "a noise", "ilikai", "wale", "houluulu", "poʻohiwi", "‘ō", "hoolei", "alohi", "waiwai", "kolamu", "molecule", "koho i", "hewa", "hinahina", "hana hou"    
+];
+
 const godsVocabularyTurkish = [
     "abla", "acaba", "acele", "acı", "aç", "açı", "açılmak", "açmak", "ad", "ada", "adam", "âdet", "adres", "affetmek", "afiyet", "ağabey", 
     "ağaç", "ağır", "ağız", "ağlamak", "ağrımak", "ağustos", "aile", "ait", "ak", "akıl", "akıllı", "akmak", "akşam", "alay", "alçak", 
@@ -451,7 +520,7 @@ const godsVocabularyTurkish = [
     "yaz", "yazı", "yazık", "yazmak", "yedi", "yemek", "yeni", "yer", "yeşil", "yetişmek", "yetmek", "yetmiş", "yıkamak", "yıkanmak", "yıl", 
     "yine", "yirmi", "yiyecek", "yoğurt", "yok", "yoksa", "yol", "yolcu", "yolculuk", "yollamak", "yorgun", "yorulmak", "yön", "yönetici", "yukarı", 
     "yumurta", "yumuş", "yurt", "yüksek", "yükselmek", "yürümek", "yüz", "yüzmek", "Z", "zahmet", "zaman", "zamir", "zarf", "zaten", "zengin"    
-]
+];
 
 const godsVocabularyLithuanian = [
     "kaip", "Aš", "jo", "kad", "jis", "buvo", "už", "nuo", "yra", "su", "jie", "būti", "pradėjo", "vienas", "turėti", "tai", 
@@ -520,7 +589,7 @@ const godsVocabularyLithuanian = [
     "dvigubai", "sėdynė", "toliau", "blokas", "schema", "skrybėlė", "parduoti", "sėkmė", "įmonė", "atimti", "renginys", "pirma", "spręsti", "plaukti", "terminas", 
     "priešais", "žmona", "batų", "petys", "plitimas", "susitarti", "stovykla", "sugalvoti", "medvilnės", "Gimė", "nustatyti", "kvorta", "devyni", "sunkvežimis", "triukšmas", 
     "lygis", "tikimybė", "surinkti", "parduotuvė", "ruožas", "mesti", "valymo", "turtas", "stulpelis", "molekulė", "pasirinkti", "negerai", "pilka", "pakartokite", "reikalauti"
-]
+];
 
 const godsVocabulary = [
     "African", "Angel", "BBC", "BRB", "Bam", "Boo", "Burp", "CIA", "California", "Catastrophic Success", "China", "Church", 
@@ -614,7 +683,7 @@ function getRandomIndex(max) {
     return getRandomInterval(0, max);
 }
 
-// 0: english, 1: lithuanian
+// 0: english, 1: lithuanian, 2: turkish, 3: hawaiian
 function generateWordGod(language = 0) {
     let passage = '';
 
@@ -633,6 +702,9 @@ function generateWordGod(language = 0) {
             break;
         case 2:
             length_of_vocab = godsVocabularyTurkish.length;
+            break;
+        case 3:
+            length_of_vocab = godsVocabularyHawaiian.length;
             break;
     }
 
@@ -664,6 +736,9 @@ function generateWordGod(language = 0) {
                 break;
             case 2:
                 newWord = godsVocabularyTurkish[wordIdx];
+                break;
+            case 3:
+                newWord = godsVocabularyHawaiian[wordIdx];
                 break;
         }
         passage += ` ${newWord}`;
